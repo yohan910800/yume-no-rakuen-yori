@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - StartPos
+  - door1
+  - Rec
+  - DeadZone
+  - projectile
+  - red
+  - green
+  - left
+  - bottom
+  - bottom2
+  - left2
+  - brown
+  - EnemyType2
+  - Enemy2
+  - EnemyZ
+  - EenemyInverseX
+  - EnemyInverseZ
+  - YellowRound
+  - AfterYellowRound
+  - InSecondPart
+  - SwitchCube1
+  - SwitchCube2
+  - AttackP
+  - hako
+  - Stage4Left
+  - Stage4Rigth
+  - Stage4Middle
+  - Stage4Left2
+  - Stage4Rigth2
+  - Stage4LeftBack
+  - SphereLigth
+  - EnemyRuner
+  - Circle
+  - Stage3EnemyX
+  - EnemyCircle
+  - EnemyRunerX
+  - EnemyCircleZ
+  - EnemyStage2.2
+  - ProjectileX
+  - projectileStage3
+  - Enemy3
+  - FlyPlatformTrigger
+  - EnemyTrap
+  - stage2.2
+  - RotatorButton
+  - RotatorButton2
+  - RotatorButton3
+  - rigth
+  - RotatorButton4
+  - EnemyShootFast
+  - EnemyShootSlow
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - Player
+  - ground
+  - specialHakoOshi
+  - PostProcessing
+  - EnergyParticle
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: pillier
+    uniqueID: 3398792357
+    locked: 0
+  - name: car
+    uniqueID: 3315642365
+    locked: 0
+  - name: player
+    uniqueID: 1957565093
+    locked: 0
+  - name: Enemy
+    uniqueID: 2660367067
+    locked: 0
+  - name: destroyPlatform
+    uniqueID: 2872918151
+    locked: 0

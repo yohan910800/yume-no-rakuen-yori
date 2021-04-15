@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 92249b62123955047b288ab7615cf97e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: rd_Stage_TEST:Building_Center
+    100004: rd_Stage_TEST:Elevator
+    100006: rd_Stage_TEST:FlyingPlatform1
+    100008: rd_Stage_TEST:FlyingPlatform10
+    100010: rd_Stage_TEST:FlyingPlatform11
+    100012: rd_Stage_TEST:FlyingPlatform12
+    100014: rd_Stage_TEST:FlyingPlatform13
+    100016: rd_Stage_TEST:FlyingPlatform14
+    100018: rd_Stage_TEST:FlyingPlatform2
+    100020: rd_Stage_TEST:FlyingPlatform3
+    100022: rd_Stage_TEST:FlyingPlatform4
+    100024: rd_Stage_TEST:FlyingPlatform5
+    100026: rd_Stage_TEST:FlyingPlatform6
+    100028: rd_Stage_TEST:FlyingPlatform7
+    100030: rd_Stage_TEST:FlyingPlatform8
+    100032: rd_Stage_TEST:FlyingPlatform9
+    100034: rd_Stage_TEST:Ground1
+    100036: rd_Stage_TEST:Ground2
+    100038: rd_Stage_TEST:Ground3
+    100040: rd_Stage_TEST:Ground4
+    100042: rd_Stage_TEST:Ground5
+    100044: rd_Stage_TEST:Ground6
+    100046: rd_Stage_TEST:pSphere1
+    400000: //RootNode
+    400002: rd_Stage_TEST:Building_Center
+    400004: rd_Stage_TEST:Elevator
+    400006: rd_Stage_TEST:FlyingPlatform1
+    400008: rd_Stage_TEST:FlyingPlatform10
+    400010: rd_Stage_TEST:FlyingPlatform11
+    400012: rd_Stage_TEST:FlyingPlatform12
+    400014: rd_Stage_TEST:FlyingPlatform13
+    400016: rd_Stage_TEST:FlyingPlatform14
+    400018: rd_Stage_TEST:FlyingPlatform2
+    400020: rd_Stage_TEST:FlyingPlatform3
+    400022: rd_Stage_TEST:FlyingPlatform4
+    400024: rd_Stage_TEST:FlyingPlatform5
+    400026: rd_Stage_TEST:FlyingPlatform6
+    400028: rd_Stage_TEST:FlyingPlatform7
+    400030: rd_Stage_TEST:FlyingPlatform8
+    400032: rd_Stage_TEST:FlyingPlatform9
+    400034: rd_Stage_TEST:Ground1
+    400036: rd_Stage_TEST:Ground2
+    400038: rd_Stage_TEST:Ground3
+    400040: rd_Stage_TEST:Ground4
+    400042: rd_Stage_TEST:Ground5
+    400044: rd_Stage_TEST:Ground6
+    400046: rd_Stage_TEST:pSphere1
+    2100000: rd_Stage_TEST_Building
+    2100002: rd_Stage_TEST_Ground
+    2100004: rd_Stage_TEST_FlyingPlatform
+    2100006: rd_Stage_TEST_Player
+    2100008: rd_Stage_TEST_Elevator1
+    2300000: rd_Stage_TEST:Building_Center
+    2300002: rd_Stage_TEST:Elevator
+    2300004: rd_Stage_TEST:FlyingPlatform1
+    2300006: rd_Stage_TEST:FlyingPlatform10
+    2300008: rd_Stage_TEST:FlyingPlatform11
+    2300010: rd_Stage_TEST:FlyingPlatform12
+    2300012: rd_Stage_TEST:FlyingPlatform13
+    2300014: rd_Stage_TEST:FlyingPlatform14
+    2300016: rd_Stage_TEST:FlyingPlatform2
+    2300018: rd_Stage_TEST:FlyingPlatform3
+    2300020: rd_Stage_TEST:FlyingPlatform4
+    2300022: rd_Stage_TEST:FlyingPlatform5
+    2300024: rd_Stage_TEST:FlyingPlatform6
+    2300026: rd_Stage_TEST:FlyingPlatform7
+    2300028: rd_Stage_TEST:FlyingPlatform8
+    2300030: rd_Stage_TEST:FlyingPlatform9
+    2300032: rd_Stage_TEST:Ground1
+    2300034: rd_Stage_TEST:Ground2
+    2300036: rd_Stage_TEST:Ground3
+    2300038: rd_Stage_TEST:Ground4
+    2300040: rd_Stage_TEST:Ground5
+    2300042: rd_Stage_TEST:Ground6
+    2300044: rd_Stage_TEST:pSphere1
+    3300000: rd_Stage_TEST:Building_Center
+    3300002: rd_Stage_TEST:Elevator
+    3300004: rd_Stage_TEST:FlyingPlatform1
+    3300006: rd_Stage_TEST:FlyingPlatform10
+    3300008: rd_Stage_TEST:FlyingPlatform11
+    3300010: rd_Stage_TEST:FlyingPlatform12
+    3300012: rd_Stage_TEST:FlyingPlatform13
+    3300014: rd_Stage_TEST:FlyingPlatform14
+    3300016: rd_Stage_TEST:FlyingPlatform2
+    3300018: rd_Stage_TEST:FlyingPlatform3
+    3300020: rd_Stage_TEST:FlyingPlatform4
+    3300022: rd_Stage_TEST:FlyingPlatform5
+    3300024: rd_Stage_TEST:FlyingPlatform6
+    3300026: rd_Stage_TEST:FlyingPlatform7
+    3300028: rd_Stage_TEST:FlyingPlatform8
+    3300030: rd_Stage_TEST:FlyingPlatform9
+    3300032: rd_Stage_TEST:Ground1
+    3300034: rd_Stage_TEST:Ground2
+    3300036: rd_Stage_TEST:Ground3
+    3300038: rd_Stage_TEST:Ground4
+    3300040: rd_Stage_TEST:Ground5
+    3300042: rd_Stage_TEST:Ground6
+    3300044: rd_Stage_TEST:pSphere1
+    4300000: rd_Stage_TEST:Building_Center
+    4300002: rd_Stage_TEST:Ground1
+    4300004: rd_Stage_TEST:FlyingPlatform1
+    4300006: rd_Stage_TEST:FlyingPlatform2
+    4300008: rd_Stage_TEST:FlyingPlatform3
+    4300010: rd_Stage_TEST:FlyingPlatform4
+    4300012: rd_Stage_TEST:FlyingPlatform5
+    4300014: rd_Stage_TEST:pSphere1
+    4300016: rd_Stage_TEST:Ground2
+    4300018: rd_Stage_TEST:FlyingPlatform6
+    4300020: rd_Stage_TEST:FlyingPlatform7
+    4300022: rd_Stage_TEST:FlyingPlatform8
+    4300024: rd_Stage_TEST:FlyingPlatform9
+    4300026: rd_Stage_TEST:FlyingPlatform10
+    4300028: rd_Stage_TEST:Elevator
+    4300030: rd_Stage_TEST:Ground3
+    4300032: rd_Stage_TEST:FlyingPlatform11
+    4300034: rd_Stage_TEST:FlyingPlatform12
+    4300036: rd_Stage_TEST:FlyingPlatform13
+    4300038: rd_Stage_TEST:Ground4
+    4300040: rd_Stage_TEST:Ground5
+    4300042: rd_Stage_TEST:FlyingPlatform14
+    4300044: rd_Stage_TEST:Ground6
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

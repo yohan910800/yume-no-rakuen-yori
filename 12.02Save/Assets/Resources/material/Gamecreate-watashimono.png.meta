@@ -1,0 +1,719 @@
+fileFormatVersion: 2
+guid: a1fb438ba5377cf4d8b630f2837aff85
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Gamecreate-watashimono_0
+    21300002: Gamecreate-watashimono_1
+    21300004: Gamecreate-watashimono_2
+    21300006: Gamecreate-watashimono_3
+    21300008: Gamecreate-watashimono_4
+    21300010: Gamecreate-watashimono_5
+    21300012: Gamecreate-watashimono_6
+    21300014: Gamecreate-watashimono_7
+    21300016: Gamecreate-watashimono_8
+    21300018: Gamecreate-watashimono_9
+    21300020: Gamecreate-watashimono_10
+    21300022: Gamecreate-watashimono_11
+    21300024: Gamecreate-watashimono_12
+    21300026: Gamecreate-watashimono_13
+    21300028: Gamecreate-watashimono_14
+    21300030: Gamecreate-watashimono_15
+    21300032: Gamecreate-watashimono_16
+    21300034: Gamecreate-watashimono_17
+    21300036: Gamecreate-watashimono_18
+    21300038: Gamecreate-watashimono_19
+    21300040: Gamecreate-watashimono_20
+    21300042: Gamecreate-watashimono_21
+    21300044: Gamecreate-watashimono_22
+    21300046: Gamecreate-watashimono_23
+    21300048: Gamecreate-watashimono_24
+    21300050: Gamecreate-watashimono_25
+    21300052: Gamecreate-watashimono_26
+    21300054: Gamecreate-watashimono_27
+    21300056: Gamecreate-watashimono_28
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_0
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 240
+        width: 24
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdbe6d66fbdb14b4c9e042b69ae84ad9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_1
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 240
+        width: 21
+        height: 46
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cfdb1415079a5e4b9f399c6249dee47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 240
+        width: 20
+        height: 45
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce7979642beb4c41833d77fd7eead33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_3
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 240
+        width: 20
+        height: 46
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2084916db29b02145b93cc9965683795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_4
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 240
+        width: 21
+        height: 48
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f140bbd7be305479cdc1ff431e4341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_5
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 240
+        width: 20
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a31ce2243710f4ba6e0b800029bccd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_6
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 240
+        width: 20
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8672919c7d471584486bc65f00a6255d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 184
+        width: 26
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1fba2762e70a15429afaa3264da235e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_8
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 184
+        width: 21
+        height: 45
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea097baa349a7d4590874ede94d67f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_9
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 185
+        width: 21
+        height: 44
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa30969cd1f23e49bfdfd8ef6fc97c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_10
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 185
+        width: 26
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b906abb61621ac4cacf391cf5c6a26c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_11
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 185
+        width: 21
+        height: 44
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629b3ff2e231255439af6e04ba6e3787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_12
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 185
+        width: 21
+        height: 44
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8742e5820b2ea4fbcab8e2eb623367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_13
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 131
+        width: 20
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfcf683079c176f46ab888042dc300d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_14
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 131
+        width: 19
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7dbe045cad42a41a23ed2ce68a1146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_15
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 131
+        width: 19
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1872cadd4fde3a9408436e2156f15e8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_16
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 131
+        width: 18
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd41f3a1dac4f7f449dfd21ca5398719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 76
+        width: 35
+        height: 48
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0b0efc1fbb5ed4e93d6cd4d9f258be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_18
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 76
+        width: 38
+        height: 48
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8225cac88d72b44d85a470cd84ccd12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_19
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 76
+        width: 40
+        height: 48
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51dc5c5e5e6b7ed47950e75d7899e4e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_20
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 76
+        width: 39
+        height: 44
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d1b00dbe1978d4ba7d225474d654fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_21
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 75
+        width: 22
+        height: 45
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b2aba0e31ff8e4c9ed958f4fd551dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_22
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 76
+        width: 27
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8d499f073e98142a15bd46d521cd22
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_23
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 76
+        width: 31
+        height: 41
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a39ffc681689440a466a5f7850dc58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_24
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 76
+        width: 30
+        height: 42
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3b10eb0744aa5489f5a5b07378efbe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_25
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 75
+        width: 29
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3dc512a73d1e948a7a8ad954323d92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_26
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 75
+        width: 29
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d4ecea049db3c46acb220e9b206a4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_27
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 75
+        width: 24
+        height: 44
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed6e7d407bf29545996199c154839bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamecreate-watashimono_28
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 19
+        width: 35
+        height: 49
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509b4984b0b3ed4468786309cfcf5ece
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 41ef686ab9c844149af3c60d0961c572
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
