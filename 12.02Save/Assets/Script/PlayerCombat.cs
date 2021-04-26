@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
 
     public float radius;
     public int damage;
-    public float startTimeBtwAttack;
+    float startTimeBtwAttack;
 
     private float timeBtwAttack = 0;
 
@@ -24,6 +24,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Start()
     {
+        startTimeBtwAttack = 0.1f;
         rb = GetComponent<Rigidbody>();
         compPlayer = GetComponent<PlayerContloller>();
         enemyStun = GetComponent<EnemyType2>();
@@ -33,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         timeBtwAttack -= Time.deltaTime;
         if (timeBtwAttack <= 0)
         {
-            if (Input.GetMouseButton(0)) //入力の処理
+            if (Input.GetMouseButtonDown(0)|| Input.GetKeyDown(KeyCode.JoystickButton2)) //入力の処理
             {
                 Attack();
             }

@@ -25,7 +25,8 @@ public class UltimateCamRotStage3 : MonoBehaviour
     static int value4 = 0;//値によるisRotかisNotRotを呼ぶ
 
     private float turnFreezTimer = 6.0f;
-
+    float camOffsetX;
+    float camOffsetZ;
 
     Vector3 camBasePos;
 
@@ -43,15 +44,10 @@ public class UltimateCamRotStage3 : MonoBehaviour
         
         camBasePos = cam.transform.position;
         y = 0.0f;
-
-       
     }
 
     void Update()
     {
-
-
-
         PlayerContloller controller = player.GetComponent<PlayerContloller>();//playerのscriptに値を送るために、controllerという変数を宣言する
         Button.transform.rotation = cam.transform.rotation;//ボタンの正面はカメラをついてくる
         //if (turnFreezTimer <= 3.0f)
@@ -69,28 +65,18 @@ public class UltimateCamRotStage3 : MonoBehaviour
 
             if (triger.tag == "rigth" || triger.tag == "YellowRound")
             {
-
                 //turnFreezTimer = 0.0f;
-
-
-
                 if (isRot == true)
                 {
-
-
-
                     y += Time.deltaTime * -60.0f;//-９０度までカメラを回転する
                     cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                 controller.Move(1);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
 
-                controller.CharaController.enabled = false;
                 if (y <= -90.0f) //is close to the triger tag rigth)//－９０度を超えたら回転を止める
                     {
                         isRot = false;
 
                         buttonAnim.SetBool("rotator", false);//ボタンのアニメーションを発動する
-                    controller.CharaController.enabled = true;
-
                 }
 
                 }
@@ -101,18 +87,14 @@ public class UltimateCamRotStage3 : MonoBehaviour
                     y += Time.deltaTime * 60.0f;//０度までカメラを回転する
                     cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     controller.Move(0);
-                controller.CharaController.enabled = false;
 
                 if (y >= 0.0f)
                     {
-                    controller.CharaController.enabled = true;
 
                     isRot2 = false;
                         buttonAnim.SetBool("rotator", false);//ボタンのアニメーションを発動する
                     }
                 }
-
-
             }
         
         
@@ -120,66 +102,59 @@ public class UltimateCamRotStage3 : MonoBehaviour
         {
             if (isRot == true)
             {
-
-
-
                 y += Time.deltaTime * 60.0f;//-９０度までカメラを回転する
                 cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                 controller.Move(3);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
 
-                controller.CharaController.enabled = false;
+
+                if (camOffsetX > -5)
+                {
+                    camOffsetX += Time.deltaTime - 1f;
+                    cam.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, -5);
+                }
+                
+
                 if (y >= 90.0f) //is close to the triger tag rigth)//－９０度を超えたら回転を止める
                 {
-
-                    controller.CharaController.enabled = true;
                     isRot = false;
-
-
-
                 }
 
             }
 
             else if (isRot2 == true)//反対側に回転させたい場合
             {
-
                 y += Time.deltaTime * -60.0f;//０度までカメラを回転する
                 cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+                if (camOffsetX < 5)
+                {
+                    camOffsetX += Time.deltaTime +1f;
+                    cam.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+                }
+                if (camOffsetZ > -5)
+                {
+                    camOffsetZ += Time.deltaTime - 1f;
+                    cam.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+                }
                 controller.Move(0);
 
-                controller.CharaController.enabled = false;
                 if (y <= 0.0f)
                 {
-
-                    controller.CharaController.enabled = true;
                     isRot2 = false;
-
                 }
             }
-
-
         }
         else if (triger.tag == "InSecondPart")
         {
             if (isRot == true)
             {
-
-
-
                 y += Time.deltaTime * -60.0f;//-９０度までカメラを回転する
                 cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                 controller.Move(0);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
 
-                controller.CharaController.enabled = false;
 
                 if (y <= 0.0f) //is close to the triger tag rigth)//－９０度を超えたら回転を止める
                 {
-
-                    controller.CharaController.enabled = true;
                     isRot = false;
-
-
-
                 }
 
             }
@@ -191,24 +166,15 @@ public class UltimateCamRotStage3 : MonoBehaviour
                 cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                 controller.Move(3);
 
-                controller.CharaController.enabled = false;
 
                 if (y >= 90.0f)
                 {
 
-                    controller.CharaController.enabled = true;
                     isRot2 = false;
 
                 }
             }
-
-
         }
-
-
-
-
-
     }
 
 
@@ -220,7 +186,7 @@ public class UltimateCamRotStage3 : MonoBehaviour
             //PlayerContloller controller = player.GetComponent<PlayerContloller>();//playerのscriptに値を送るために、controllerという変数を宣言する
             //controller.h = 0;
 
-            if (Input.GetKeyDown("c"))//もしトリガーでプレイヤーがｃボタンを押したら
+            if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))//もしトリガーでプレイヤーがｃボタンを押したら
 
             {
                 Debug.Log("on trigger");

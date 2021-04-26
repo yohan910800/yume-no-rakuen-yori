@@ -19,29 +19,34 @@ public class projectileEnemy : MonoBehaviour
         if (gameObject.tag == "projectile"|| gameObject.tag == "projectileStage3")
         {
             rb.velocity = new Vector2(3.0f, 0.0f);
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 5f);
         }
         
         
         if (gameObject.name == "ProjectileX(Clone)")
         {
             gameObject.transform.SetParent(parent);
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 5f);
+        }
+
+        if (gameObject.name.Contains("Inverse"))
+        {
+            rb.velocity = new Vector2(-3.0f, 0.0f);
+            Destroy(gameObject, 5f);
         }
     }
 
     void Update()
     {
-        
-        
         if (gameObject.tag == "ProjectileX")
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 4, Space.World);
+            transform.Translate(Vector3.forward * Time.deltaTime * -4, Space.World);
         }
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Ruby")
+        if (other.gameObject.name == "Ruby"|| other.gameObject.name.Contains("Kar")
+            || other.gameObject.name.Contains("Door"))
         {
 
             Destroy(gameObject);

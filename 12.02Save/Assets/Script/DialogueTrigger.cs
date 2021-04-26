@@ -26,19 +26,17 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.name == "Ruby")
         {
             //player.enabled = false;
+            other.gameObject.GetComponent<PlayerContloller>().speed=0.0f;
             DialogCanvas.SetActive(true);
             manager.StartDialogue(dialogue);
-            
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        
         if (other.gameObject.name == "Ruby")
         {
-            if (Input.GetKeyDown("c"))
+            if (Input.GetKeyDown("e"))
             {
-               
                 manager.DisplayNextSentence();
             }
         }

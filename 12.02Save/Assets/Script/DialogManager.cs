@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class DialogManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
     private Queue<string> sentences;
-    // Start is called before the first frame update
+
     void Start()
     {
         sentences = new Queue<string>(); 
@@ -17,13 +18,11 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach(string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
-
         }
         DisplayNextSentence();
     }
@@ -34,13 +33,20 @@ public class DialogManager : MonoBehaviour
             EndDialogue();
             return;
         }
+        Debug.Log("text count "+sentences.Count);
         string sentence=sentences.Dequeue();
         dialogueText.text = sentence;
     }
+
+
     void EndDialogue()
     {
+        GameObject.Find("TransitionScreen").GetComponent<Animator>().enabled = true;
+        Invoke("GoBackToTitleScreen", 2.0f);
 
     }
-
-    
+    void GoBackToTitleScreen()
+    {
+        SceneManager.LoadScene("Title");
+    }
 }

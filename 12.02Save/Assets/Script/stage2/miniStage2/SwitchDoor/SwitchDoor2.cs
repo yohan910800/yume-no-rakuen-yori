@@ -33,7 +33,7 @@ public class SwitchDoor2 : MonoBehaviour
         if (other.gameObject.name == "Ruby")
         {
 
-            if (Input.GetKeyDown("c"))
+            if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 Debug.Log("c apuyer");
                 if (gameObject.tag=="red" || gameObject.tag == "green")//もしトリガーのtagがredだったら、以下のプログラムを走る

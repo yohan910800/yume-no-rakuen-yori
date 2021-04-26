@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BGMController : MonoBehaviour
 {
 
@@ -16,7 +16,7 @@ public class BGMController : MonoBehaviour
         camAudio = GameObject.Find("Camera");
         if (camAudio == null)
         {
-            camAudio = GameObject.Find("CameraRotator");
+            camAudio = GameObject.Find("CameraContainer");
             if (camAudio == null)
             {
                 camAudio = GameObject.Find("CameraRotator2");
@@ -53,28 +53,19 @@ public class BGMController : MonoBehaviour
             alreadyPlay = false;
             if (alreadyPlay == false)
             {
-
-                if (camAudio.name == "CameraRotator")
+                if (SceneManager.GetActiveScene().name == "Stage3")
                 {
-                    audio.clip =
-                       Resources.Load<AudioClip>("Sounds/BGM/EnemyAttack");
-                    audio.Stop();
+                    if (camAudio.name == "CameraContainer")
+                    {
+                        audio.clip =
+                           Resources.Load<AudioClip>("Sounds/BGM/EnemyAttack");
+                        audio.Stop();
 
-                    audio.clip =
-                        Resources.Load<AudioClip>("Sounds/BGM/pianoBGM");
-                    audio.pitch = 0.2f;
-                    audio.Play();
-                }
-                else if (camAudio.name == "CameraRotator2")
-                {
-                    audio.clip =
-                        Resources.Load<AudioClip>("Sounds/BGM/EnemyAttack");
-                    audio.Stop();
-
-                    audio.clip =
-                        Resources.Load<AudioClip>("Sounds/BGM/pianoBGM");
-                    audio.pitch = 3;
-                    audio.Play();
+                        audio.clip =
+                            Resources.Load<AudioClip>("Sounds/BGM/pianoBGM");
+                        audio.pitch = 0.2f;
+                        audio.Play();
+                    }
                 }
                 else
                 {

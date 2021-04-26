@@ -55,7 +55,7 @@ public class EnemieTrap : MonoBehaviour
     {
         if (other.gameObject.name == "Ruby")
         {
-            if (Input.GetKeyDown("c"))
+            if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 active = true;
                 active2 = true;

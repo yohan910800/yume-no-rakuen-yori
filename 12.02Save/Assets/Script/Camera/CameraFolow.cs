@@ -18,9 +18,7 @@ public class CameraFolow : MonoBehaviour
     void LateUpdate()
     {
         bgm.volume = 0.3f;
-
         transform.position = target.transform.position + offset;
     }
-
-
+   
 }

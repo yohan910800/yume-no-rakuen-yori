@@ -40,4 +40,6 @@ public class EnemyType3 : MonoBehaviour
         }
         time += Time.deltaTime;
     }
+
+   
 }

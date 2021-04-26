@@ -13,6 +13,9 @@ public class ElevetorStage3 : MonoBehaviour
     bool ok = false;
     bool way1;
     bool way2;
+
+    Collider col;
+    GameObject playerObj;
     //public BoxCollider m_collider;//攻撃地帯を受ける変数
     //public GameObject box;
     void Start()
@@ -26,35 +29,38 @@ public class ElevetorStage3 : MonoBehaviour
     {
         if (ok == true)
         {
-
-
+            playerObj.transform.position = transform.position+new Vector3(0,0.5f,0);
             if (way1 == true)
             {
                 movingPlatform.position = Vector3.Lerp
-                    (movingPlatform.position, pos1.position, Time.deltaTime * 0.3f);
+                (movingPlatform.position, pos1.position, Time.deltaTime * 0.3f);
 
             }
             
-                if (cube.position.x >= 55)
+            if (cube.position.x >= 55)
+            {
+                way1 = false;
+
+                if (way2 == true)
                 {
-                    way1 = false;
-
-                    if (way2 == true)
-                    {
-                        movingPlatform.position = Vector3.Lerp
-                        (movingPlatform.position, pos2.position, Time.deltaTime);
-                    }
+                    movingPlatform.position = Vector3.Lerp
+                    (movingPlatform.position, pos2.position, Time.deltaTime);
                 }
-                    if (cube.position.y >= 6)
-                    {
-                        way2 = false;
-                        movingPlatform.position = Vector3.Lerp
-                    (movingPlatform.position, pos3.position, Time.deltaTime);
-                    }
-                
+            }
+            if (cube.position.y >= 6)
+            {
+                 way2 = false;
+                movingPlatform.position = Vector3.Lerp
+                (movingPlatform.position, pos3.position, Time.deltaTime);
             
-
-            Debug.Log(movingPlatform.position);
+                
+            }
+            if (cube.position.x <= 29)
+            {
+                playerObj.GetComponent<PlayerContloller>().gravity = 20.0f;
+                ok = false;
+            }
+            Debug.Log("x" + cube.transform.position.x);
         }
     }
     
@@ -62,10 +68,12 @@ public class ElevetorStage3 : MonoBehaviour
     {
         if (other.gameObject.name == "Ruby")
         {
+            playerObj = other.gameObject;
             other.transform.parent = gameObject.transform;
             ok = true;
             way1 = true;
             way2 = true;
+            playerObj.GetComponent<PlayerContloller>().gravity = 0.0f;
         }
 
     }
@@ -88,14 +96,23 @@ public class ElevetorStage3 : MonoBehaviour
         }
     }
     void OnTriggerExit(Collider other)
-
     {
 
         if (other.gameObject.name == "Ruby")
         {
-            other.transform.parent = null;
+            col= other;
+            col.transform.parent = null;
             transform.position = originPos;
+            ok = false;
+            way1 = false;
+            way2 = false;
+            //Invoke("ResetElevetor", 5f);
             //elevetor.SetBool("actionElevetor", false);
         }
+    }
+    void ResetElevetor()
+    {
+        col.transform.parent = null;
+        transform.position = originPos;
     }
 }

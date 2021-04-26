@@ -4,11 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
+    GameObject pausePrefabObj;
+
+    
 
     //　スタートボタンを押したら実行する
     public void StartGame()
     {
-        SceneManager.LoadScene("ministage 1");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
     //　ゲーム終了ボタンを押したら実行する
@@ -21,5 +25,17 @@ public class GameSystem : MonoBehaviour
 #else
 		Application.Quit();
 #endif
+    }
+
+    public void ReturnTitleScreen()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void ContinueGame()
+    {
+        
+        Destroy(GameObject.Find("PausUI 1(Clone)"));
+        Time.timeScale = 1.0f;
     }
 }

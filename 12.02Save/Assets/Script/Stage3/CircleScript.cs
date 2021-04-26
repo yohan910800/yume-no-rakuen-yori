@@ -53,7 +53,7 @@ public class CircleScript : MonoBehaviour
             if (gameObject.tag == "Circle") //is close to the triger tag rigth)//－９０度を超えたら回転を止める
             {
 
-                if (Input.GetKeyDown("c"))//もしトリガーでプレイヤーがｃボタンを押したら
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))//もしトリガーでプレイヤーがｃボタンを押したら
 
                 {
                     isRot = true;

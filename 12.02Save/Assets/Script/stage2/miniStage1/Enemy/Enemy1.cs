@@ -99,6 +99,15 @@ public class Enemy1 : MonoBehaviour
             GetComponent<CapsuleCollider>().enabled = false;
         }
     }
-   
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Ruby")
+        {
+            Physics.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider>());
+
+
+        }
+    }
+
 
 }

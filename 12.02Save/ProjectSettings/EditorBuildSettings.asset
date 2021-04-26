@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 14fc9562b672cc8429b6a419f8dba4a5
+  - enabled: 1
     path: Assets/Scenes/ministage 1.unity
     guid: f38482c33f933754bae217950ad47191
   - enabled: 1
@@ -15,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ministage 3.unity
     guid: 8f21f7f5dd95bb844a6e3c20734c6a97
   - enabled: 1
-    path: Assets/Scenes/stage2.1.unity
-    guid: 297ab6709e5dbd54ba8dc06a2906978e
+    path: Assets/Scenes/Stage2.1Remake.unity
+    guid: d3e6c399a418bc94dabc8a29bbeec7af
   - enabled: 1
     path: Assets/Scenes/stage2.2.unity
     guid: e11136965db005f42abfc40ba5b06e6e

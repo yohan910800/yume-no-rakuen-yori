@@ -15,7 +15,8 @@ public class RbCubeDoor : MonoBehaviour
     {
         if (other.gameObject.name == "Ruby")
         {
-            if (Input.GetKeyDown("c")){
+            if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
+            {
                 button.SetBool("rotator", true);//ボタンのアニメーションを発動する
 
                 Destroy(door);

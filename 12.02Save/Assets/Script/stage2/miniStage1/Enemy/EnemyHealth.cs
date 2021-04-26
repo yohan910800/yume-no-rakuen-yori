@@ -31,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
         CameraShake = GameObject.Find("Main Camera");
         CameraShake.GetComponent<Animator>();
         playerConytoller = player.GetComponent<PlayerContloller>();
+        slider.value = CalculateHealth();
 
     }
     void Update()
@@ -41,6 +42,8 @@ public class EnemyHealth : MonoBehaviour
             sliderPos.transform.rotation = GameObject.Find("Main Camera").transform.rotation;
         }
         dieEffect.transform.position = transform.position;
+        
+        
     }
     void OnTriggerEnter(Collider other)
     {
@@ -48,6 +51,7 @@ public class EnemyHealth : MonoBehaviour
         {
             health -= playerConytoller.damage;
             bloodEffect.Play();
+            other.gameObject.GetComponent<AudioSource>().Play();
             CameraShake.GetComponent<Animator>().SetTrigger("shake0");
             slider.value = CalculateHealth();
             if (gameObject.tag != "Enemy3")
@@ -85,7 +89,8 @@ public class EnemyHealth : MonoBehaviour
 
         }
     }
-   
+    
+
     float CalculateHealth()
     {
 

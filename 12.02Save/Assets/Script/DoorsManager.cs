@@ -15,21 +15,29 @@ public class DoorsManager : MonoBehaviour
     GameObject closeEffect;
     void Start()
     {
-        
-        
         //animator = door.GetComponent<Animator>();
-
         //isDoorOpening = true;
         //StartCoroutine(OpenDoor(0.01f));
     }
 
     public void OpenTheDoor(string effectName)
     {
-
-        openEffect = Resources.Load<GameObject>("Prefabs/Effects/"+effectName);
-        GameObject openEffectObj=Instantiate(openEffect, door.transform.transform.position+new Vector3(0,0,-3), Quaternion.identity);
-        Destroy(openEffectObj, 1f);
-        Invoke("DisableDoorObj", 0.1f);
+        if (door.activeInHierarchy == true)
+        {
+            openEffect = Resources.Load<GameObject>("Prefabs/Effects/" + effectName);
+            if (door.name == "RedDoor1")
+            {
+                GameObject openEffectObj = Instantiate(openEffect, door.transform.transform.position+new Vector3(0,0,-3), Quaternion.identity);
+                Destroy(openEffectObj, 1f);
+            }
+            else
+            {
+                GameObject openEffectObj = Instantiate(openEffect, door.transform.transform.position, Quaternion.identity);
+                Destroy(openEffectObj, 1f);
+            }
+            
+            Invoke("DisableDoorObj", 0.1f);
+        }
     }
     void DisableDoorObj()
     {
@@ -38,12 +46,15 @@ public class DoorsManager : MonoBehaviour
 
     public void CloseTheDoor(string effectName)
     {
-        closeEffect = Resources.Load<GameObject>("Prefabs/Effects/"+effectName);
-        GameObject closeEffectObj=Instantiate(closeEffect, door.transform.transform.position, Quaternion.identity);
-        Destroy(closeEffectObj, 1f);
-        Invoke("EnableDoorObj", 0.3f);
-        //animator.SetBool("CloseDoor", true);
-        //animator.SetBool("OpenDoor", false);
+        if (door.activeInHierarchy == false)
+        {
+            closeEffect = Resources.Load<GameObject>("Prefabs/Effects/" + effectName);
+            GameObject closeEffectObj = Instantiate(closeEffect, door.transform.transform.position, Quaternion.identity);
+            Destroy(closeEffectObj, 1f);
+            Invoke("EnableDoorObj", 0.3f);
+            //animator.SetBool("CloseDoor", true);
+            //animator.SetBool("OpenDoor", false);
+        }
     }
     void EnableDoorObj()
     {

@@ -8,6 +8,16 @@ public class PlayerData
     public int hp;
     public Vector3 savePoint;
     public int savedHp;
+    public Quaternion camRotation;
+    public Vector3 cameraOffset;
+
+    public int cameraRotationIndex;
+    public int cameraRotationIndex2;
+    public int cameraRotationIndex3;
+
+    public bool isArrivingFromRight;
+    public bool isPlayerComingFromRight;
+    public bool isPlayerComingFromLeft;
 
     static PlayerData instance;
     public static PlayerData GetInstance()

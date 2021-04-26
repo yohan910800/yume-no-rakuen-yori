@@ -126,7 +126,7 @@ public class RubicCybe2 : MonoBehaviour
         if (other.gameObject.name == "Ruby")//もし"Ruby"というgameObjectをトリガ-に入ったら
         {
 
-            if (Input.GetKeyDown("c"))//もしトリガーでプレイヤーがｃボタンを押したら
+            if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))//もしトリガーでプレイヤーがｃボタンを押したら
 
             {
                 Debug.Log("on trigger");

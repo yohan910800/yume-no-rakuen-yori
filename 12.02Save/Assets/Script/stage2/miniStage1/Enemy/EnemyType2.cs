@@ -74,20 +74,18 @@ public class EnemyType2 : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
-
-        
             float distTarget = Vector3.Distance(target.transform.position,
             EnemyContainer.transform.position);//floatでプレイやと敵の距離を受ける変数
         if (target.transform.position.y > transform.position.y + 2)//ステージ3にプレイヤーがジャンプしたら、敵がついてこないという条件
         {
 
-            rb.constraints = RigidbodyConstraints.FreezeRotationX |
-             RigidbodyConstraints.FreezeRotationZ |
-             RigidbodyConstraints.FreezePositionY
-             | RigidbodyConstraints.FreezePositionZ;//敵の元の動きの制限
+            //rb.constraints = RigidbodyConstraints.FreezeRotationX |
+            // RigidbodyConstraints.FreezeRotationZ |
+            // RigidbodyConstraints.FreezePositionY
+            // | RigidbodyConstraints.FreezePositionZ;//敵の元の動きの制限
 
-            animator.SetFloat("speed", moveSpeed);
-            animator.SetBool("idleCondition", true);
+            //animator.SetFloat("speed", moveSpeed);
+            //animator.SetBool("idleCondition", true);
         }
         //else if (target.transform.position.y < transform.position.y +2)
         //{
@@ -108,32 +106,30 @@ public class EnemyType2 : MonoBehaviour
 
                 if (timeStun > 0)//もしタイマーが0より大きかったら、数え始める
                 {
-                    if (stunParticule.isPlaying == false)//particle実行していない場合、
-                    {
-                        stunParticule.Play();//particleスタンを実行する
-                    }
-                    rb.constraints = RigidbodyConstraints.FreezeAll;//動き無効
-                    animator.SetBool("Attack", false);//攻撃アニメーション無効
-                    m_collider.enabled = false;//攻撃の当たり判定無効
-                    timeStun -= Time.deltaTime;//タイマーを０秒までにする
+                    //if (stunParticule.isPlaying == false)//particle実行していない場合、
+                    //{
+                    //    stunParticule.Play();//particleスタンを実行する
+                    //}
+                    //rb.constraints = RigidbodyConstraints.FreezeAll;//動き無効
+                    //animator.SetBool("Attack", false);//攻撃アニメーション無効
+                    //m_collider.enabled = false;//攻撃の当たり判定無効
+                    //timeStun -= Time.deltaTime;//タイマーを０秒までにする
 
                 }
                 else//タイマーが終わったら
                 {
-                    if (stunParticule.isPlaying == true)//particleが実行している場合、
-                    {
-                        stunParticule.Stop();//particleスタンをストップする
-                        stunValue2 = 0;//プレイヤー撃った数を0にする
+                    //if (stunParticule.isPlaying == true)//particleが実行している場合、
+                    //{
+                    //    stunParticule.Stop();//particleスタンをストップする
+                    //    stunValue2 = 0;//プレイヤー撃った数を0にする
 
-                        okValue = 0;//スタン条件をfalseにする
-                        timeStun = 5;//タイマーを元の状態に戻す
+                    //    okValue = 0;//スタン条件をfalseにする
+                    //    timeStun = 5;//タイマーを元の状態に戻す
 
-                    }
+                    //}
                 //timeStun = 5;
+                }
             }
-        }
-
-
 
         else//スタン状態じゃなかったっら、普通の動きをする
             {
@@ -157,22 +153,10 @@ public class EnemyType2 : MonoBehaviour
                         //transform.rotation = cam.transform.rotation;//カメラに向いている
                         moveSpeed = 0.0f;
 
-
-
-
                         Attack();
-
-
-
 
                         nextAttack = Time.time + timeAttack;//次の攻撃の時点を宣言する
                         animator.SetBool("idleCondition", true);
-
-
-
-
-
-
 
                     }
                     else
@@ -187,7 +171,6 @@ public class EnemyType2 : MonoBehaviour
                     animator.SetBool("Attack", false);
                     if (EnemyContainer.tag == "EnemyZ" || EnemyContainer.tag == "EnemyInverseZ"|| EnemyContainer.tag == "EnemyCircleZ")//EnemyZタッグにつけている敵カメラに見えるように向いている条件
                         transform.rotation = Quaternion.Euler(0, 90, 0);
-
                 }
             }
         }
@@ -258,7 +241,7 @@ public class EnemyType2 : MonoBehaviour
 
                 animator.SetFloat("speed", moveSpeed);
                 animator.SetBool("idleCondition", true);
-                rb.constraints = RigidbodyConstraints.FreezeAll;//XAxisを制限する
+                //rb.constraints = RigidbodyConstraints.FreezeAll;//XAxisを制限する
 
             }
             else if(distTarget>=2)
@@ -271,16 +254,18 @@ public class EnemyType2 : MonoBehaviour
                 {
 
                     rb.constraints = RigidbodyConstraints.FreezeRotationX |
-                RigidbodyConstraints.FreezeRotationZ |
-                RigidbodyConstraints.FreezePositionY
+                RigidbodyConstraints.FreezeRotationZ
+                //|
+                //RigidbodyConstraints.FreezePositionY
                 | RigidbodyConstraints.FreezePositionZ;//敵の元の動きの制限
                 }
                 else if (EnemyContainer.tag=="EnemyZ"|| EnemyContainer.tag 
                     == "EnemyInverseZ"|| EnemyContainer.tag == "EnemyCircleZ")
                 {
                     rb.constraints = RigidbodyConstraints.FreezeRotationX |
-               RigidbodyConstraints.FreezeRotationZ |
-               RigidbodyConstraints.FreezePositionY
+               RigidbodyConstraints.FreezeRotationZ 
+               //|
+               //RigidbodyConstraints.FreezePositionY
                | RigidbodyConstraints.FreezePositionX;//敵の元の動きの制限
                 }
                 moveSpeed = 1.0f;
@@ -292,15 +277,10 @@ public class EnemyType2 : MonoBehaviour
                 movement = direction;
                 rb.MovePosition(transform.position +
                     (direction * moveSpeed * Time.deltaTime));
-                
-
             }
         }
         else if(Action_Value==0)
         {
-
-            
-            
                 if (transform.position != basicPosition)
                 {
                     //rb.freezeLocal =false;

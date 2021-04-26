@@ -2,6 +2,7 @@
 using UnityEngine.Audio;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerContloller : MonoBehaviour
 {
@@ -30,6 +31,14 @@ public class PlayerContloller : MonoBehaviour
     public ParticleSystem powerParticle;
     public AudioSource walkSound;
 
+    public int cameraRotationIndex;
+    public int cameraRotationIndex2;
+    public int cameraRotationIndex3;
+
+    public bool isArrivingFromRight;
+    public bool isPlayerComingFromLeft;
+    public bool isPlayerComingFromRight;
+
     private Vector3 moveDirection = new Vector3(0, 0, 0);
     SpriteRenderer sprite;
 
@@ -47,19 +56,14 @@ public class PlayerContloller : MonoBehaviour
     float y4;
     float camOffsetZ;
     float camOffsetX;
-    int cameraRotationIndex;
-    int cameraRotationIndex2;
-    int cameraRotationIndex3;
+    
     int cameraRotationIndex4;
 
     int redDoorIndex;
     int greenDoorIndex;
 
     bool isCameraRotating;
-    bool isArrivingFromRight;
-
-    bool isPlayerComingFromLeft;
-    bool isPlayerComingFromRight;
+    
 
 
     void Start()
@@ -86,7 +90,7 @@ public class PlayerContloller : MonoBehaviour
     void Update()
     {
         Debug.Log("num of emission" + NumberEmission);
-        AttackPosition.transform.rotation=cam.transform.rotation;
+        AttackPosition.transform.rotation=cam.transform.parent.transform.rotation;
         Move(moveValue);
     }
     
@@ -98,7 +102,7 @@ public class PlayerContloller : MonoBehaviour
     }
     public void Move(int freezValue)
     {
-        transform.rotation = cam.transform.rotation;//カメラとと同じように回転する
+        transform.rotation = cam.transform.parent.transform.rotation;//カメラとと同じように回転する
 
         if (CharaController.isGrounded)
         {
@@ -125,16 +129,14 @@ public class PlayerContloller : MonoBehaviour
 
         if (jump_ct < 2)
         {
-
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("space") || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 Jump();
             }
         }
 
         h = Input.GetAxis("Horizontal");
-        //Debug.Log(h);
-        
+
         if (h < 0 && !facingRight || h > 0 && facingRight)
         {
             Flip(h);
@@ -176,7 +178,6 @@ public class PlayerContloller : MonoBehaviour
         
         moveDirection.y -= gravity * Time.deltaTime;
         CharaController.Move(moveDirection * Time.deltaTime);
-
     }
     
     void ResetJump()
@@ -212,12 +213,14 @@ public class PlayerContloller : MonoBehaviour
         }
     }
     
-
     //箱押し
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
-
+        if (hit.gameObject.name.Contains("Enemy"))
+        {
+            Physics.IgnoreCollision(hit.collider, CharaController);
+        }
         // no rigidbody
         if (body == null || body.isKinematic)
         {
@@ -255,50 +258,51 @@ public class PlayerContloller : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag=="red")
+        if (SceneManager.GetActiveScene().name != "stage2.2")
         {
-            DoorsManager doorManager= other.gameObject.GetComponent<DoorsManager>();
-            if (Input.GetKeyDown("e"))
+            if (other.gameObject.tag == "red")
             {
-                if (redDoorIndex == 0)
+                DoorsManager doorManager = other.gameObject.GetComponent<DoorsManager>();
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
-
-                    doorManager.OpenTheDoor("OpenEffectRed");
-                    redDoorIndex++;
-                }
-                else
-                {
-                    doorManager.CloseTheDoor("CloseEffectRed");
-                    redDoorIndex--;
+                    if (redDoorIndex == 0)
+                    {
+                        doorManager.OpenTheDoor("OpenEffectRed");
+                        redDoorIndex++;
+                    }
+                    else
+                    {
+                        doorManager.CloseTheDoor("CloseEffectRed");
+                        redDoorIndex--;
+                    }
                 }
             }
 
-        }
-
-        else if (other.gameObject.tag == "green")
-        {
-            DoorsManager doorManager = other.gameObject.GetComponent<DoorsManager>();
-            if (Input.GetKeyDown("e"))
+            else if (other.gameObject.tag == "green")
             {
-                if (greenDoorIndex == 0)
+                DoorsManager doorManager = other.gameObject.GetComponent<DoorsManager>();
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
-                    doorManager.OpenTheDoor("OpenEffect");
-                    greenDoorIndex++;
+                    if (greenDoorIndex == 0)
+                    {
+                        doorManager.OpenTheDoor("OpenEffect");
+                        greenDoorIndex++;
+                    }
+                    else
+                    {
+                        doorManager.CloseTheDoor("CloseEffect");
+                        greenDoorIndex--;
+                    }
                 }
-                else
-                {
-                    doorManager.CloseTheDoor("CloseEffect");
-                    greenDoorIndex--;
-                }
-            }
 
+            }
         }
 
         // turn feature
         switch (other.gameObject.tag)
         {
             case "RotatorButton":
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
                     if (isPlayerComingFromLeft == false)
                     {
@@ -309,21 +313,21 @@ public class PlayerContloller : MonoBehaviour
                 break;
 
             case "RotatorButton2":
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
                     TurnCamera2(other);
                 }
                 break;
 
             case "RotatorButton3":
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
                     isArrivingFromRight = true;
                     TurnCamera3(other);
                 }
                 break;
             case "RotatorButton4":
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
                     if (isPlayerComingFromRight == false)
                     {
@@ -407,12 +411,14 @@ public class PlayerContloller : MonoBehaviour
                 TurnCamAndButtonToRight(triggerPowerBtn);
                 Move(3);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 SetCameraOffsetXToMinus5();
+                //SetCameraOffsetMinusZTo5();
+                Debug.Log("hhhhhhhhhhhhhhhhhhhh");
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 90, 0.0f);
-                CharaController.enabled = false;
+
                 if (y <= -270)
                 {
                     y = -270;
-                    cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+                    cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     cameraRotationIndex = 0;
                     isCameraRotating = false;
@@ -428,12 +434,12 @@ public class PlayerContloller : MonoBehaviour
                 Move(2);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 
                 SetCameraOffsetTo5();
+
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 90, 0.0f);
-                CharaController.enabled = false;
                 if (y >= 180)
                 {
                     y = 180;
-                    cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+                    cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     isCameraRotating = false;
                 }
@@ -451,8 +457,9 @@ public class PlayerContloller : MonoBehaviour
                 TurnBackCamAndButtonToLeft(triggerPowerBtn);
                 Move(2);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 90, 0.0f);
-                SetCameraOffsetTo5();
-                CharaController.enabled = false;
+                //SetCameraOffsetTo5();
+                SetCameraOffsetZTo5();
+                SetCameraOffsetXTo5();
                 if (y >= -180)
                 {
                     cameraRotationIndex = 1;
@@ -466,11 +473,11 @@ public class PlayerContloller : MonoBehaviour
         {
             while (isCameraRotating == true)
             {
+
                 TurnCamAndButtonToRight(triggerPowerBtn);
                 Move(3);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 90, 0.0f);
                 SetCameraOffsetXToMinus5();
-                CharaController.enabled = false;
                 if (y <= 90)
                 {
                     isCameraRotating = false;
@@ -490,12 +497,12 @@ public class PlayerContloller : MonoBehaviour
                 TurnCamAndButtonToRight(triggerPowerBtn);
                 Move(2);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 90, 0.0f);
-                CharaController.enabled = false;
-                SetCameraOffsetTo5();
+                SetCameraOffsetZTo5();
+                SetCameraOffsetXToMinus5();
                 if (y <= -180)
                 {
                     y = -180;
-                    cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+                    cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     isCameraRotating = false;
                 }
@@ -509,12 +516,11 @@ public class PlayerContloller : MonoBehaviour
                 TurnBackCamAndButtonToLeft(triggerPowerBtn);
                 Move(1);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 //triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 90, 0.0f);
-                CharaController.enabled = false;
                 SetCameraOffsetTo5();
                 if (y >= 270)
                 {
                     y = 270;
-                    cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+                    cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                     isCameraRotating = false;
                 }
@@ -532,7 +538,7 @@ public class PlayerContloller : MonoBehaviour
                 TurnBackCamAndButtonToLeft(triggerPowerBtn);
                 Move(1);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 0, 0.0f);
-                CharaController.enabled = false;
+                SetCameraOffsetXTo5();
                 if (y >= -90)
                 {
                     isCameraRotating = false;
@@ -547,7 +553,6 @@ public class PlayerContloller : MonoBehaviour
                 TurnCamAndButtonToRight(triggerPowerBtn);
                 Move(2);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 0, 0.0f);
-                CharaController.enabled = false;
                 if (y <= 180)
                 {
                     isCameraRotating = false;
@@ -555,7 +560,6 @@ public class PlayerContloller : MonoBehaviour
                 yield return new WaitForSeconds(waitTime);
             }
         }
-
     }
 
     IEnumerator TurnRight(float waitTime, Collider triggerPowerBtn)
@@ -569,14 +573,13 @@ public class PlayerContloller : MonoBehaviour
                     TurnCamAndButtonToRight(triggerPowerBtn);
                     Move(0);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                     SetCameraOffsetXToMinus5();
-                    CharaController.enabled = false;
                     if (y <= -360)
                     {
                         y = 0;
                         cameraRotationIndex = 0;
                         cameraRotationIndex2 = 0;
                         cameraRotationIndex3 = 0;
-                        cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+                        cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                         triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
                         isArrivingFromRight = false;
                         isPlayerComingFromRight = false;
@@ -593,7 +596,6 @@ public class PlayerContloller : MonoBehaviour
                     TurnCamAndButtonToRight(triggerPowerBtn);
                     Move(1);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                     SetCameraOffsetTo5();
-                    CharaController.enabled = false;
                     if (y <= -90)
                     {
                         isCameraRotating = false;
@@ -608,7 +610,8 @@ public class PlayerContloller : MonoBehaviour
             {
                 TurnBackCamAndButtonToLeft(triggerPowerBtn);
                 Move(3);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
-                CharaController.enabled = false;
+                SetCameraOffsetXToMinus5();
+                
                 if (y >= 90)
                 {
                     isArrivingFromRight = false;
@@ -625,11 +628,10 @@ public class PlayerContloller : MonoBehaviour
         {
             while (isCameraRotating == true)
             {
-
                 TurnBackCamAndButtonToLeft(triggerPowerBtn);
                 Move(0);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
                 SetCameraOffsetXToMinus5();
-                CharaController.enabled = false;
+                
                 if (y >= 0)
                 {
                     cameraRotationIndex = 0;
@@ -647,8 +649,8 @@ public class PlayerContloller : MonoBehaviour
             while (isCameraRotating == true)
             {
                 TurnCamAndButtonToRight(triggerPowerBtn);
+                
                 Move(0);//playerControllerスクリプトに1の値を送って、プレイヤーの動きを変える
-                CharaController.enabled = false;
                 if (y <= 0)
                 {
                     cameraRotationIndex = 0;
@@ -663,24 +665,16 @@ public class PlayerContloller : MonoBehaviour
         }
     }
 
-
-
-
-
-   
-
-
-
     void TurnCamAndButtonToRight(Collider triggerPowerBtn)
     {
         y -= Time.deltaTime + 2f;
-        cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+        cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
         triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
     }
     void TurnBackCamAndButtonToLeft(Collider triggerPowerBtn)
     {
         y += Time.deltaTime + 2f;//-９０度までカメラを回転する
-        cam.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
+        cam.transform.parent.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
         triggerPowerBtn.gameObject.transform.localRotation = Quaternion.Euler(0.0f, y, 0.0f);
     }
 
@@ -690,7 +684,36 @@ public class PlayerContloller : MonoBehaviour
         {
             camOffsetX += Time.deltaTime + 1f;
             camOffsetZ += Time.deltaTime + 1f;
-            cam.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+            cam.transform.parent.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+        }
+    }
+    void SetCameraOffsetZTo5()
+    {
+        if (camOffsetZ < 5)
+        {
+            camOffsetZ += Time.deltaTime + 1f;
+            cam.transform.parent.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+        }
+    }
+    void SetCameraOffsetXTo5()
+    {
+        if (camOffsetX < 5)
+        {
+            camOffsetX += Time.deltaTime + 1f;
+            cam.transform.parent.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+        }
+    }
+    void SetCameraOffsetMinusZTo5()
+    {
+        if (camOffsetZ >-5)
+        {
+            camOffsetZ += Time.deltaTime - 1f;
+            if (camOffsetZ<-10)
+            {
+                camOffsetZ = -5;
+            }
+            cam.transform.parent.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+            
         }
     }
     void SetCameraOffsetXToMinus5()
@@ -699,7 +722,7 @@ public class PlayerContloller : MonoBehaviour
         {
             camOffsetX += Time.deltaTime - 1f;
             camOffsetZ += Time.deltaTime -1f;
-            cam.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
+            cam.transform.parent.GetComponent<CameraFolow>().offset = new Vector3(camOffsetX, 0, camOffsetZ);
         }
     }
 }

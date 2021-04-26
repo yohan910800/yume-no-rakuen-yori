@@ -19,10 +19,15 @@ public class PlayerHPBar : MonoBehaviour
     public CheckPoint checkPoint;
     public Image HPUI;
 
+
+
     PlayerData playerData;
     HP_Recovery hp_Recovery;
     Animator DamageAnim;
-
+    GameObject hurtPanel;
+    GameObject cam;
+    CameraFolow camFollow;
+    PlayerContloller playerController;
     void Start()
     {
         DamageAnim = GetComponent<Animator>();
@@ -39,6 +44,7 @@ public class PlayerHPBar : MonoBehaviour
         //現在のHPを最大HPと同じに。
         //  currentHp = maxHp;
         checkPoint = GetComponent<CheckPoint>();
+        hurtPanel = GameObject.Find("PlayerHudCanvas").transform.Find("HurtPanel").gameObject;
         Debug.Log("Start currentHp : " + currentHp);
 
         HPUI = GameObject.Find("PlayerHudCanvas").
@@ -46,22 +52,38 @@ public class PlayerHPBar : MonoBehaviour
             GetComponent<Image>(); 
         
         SetHealth(playerData.maxHp);
+
+        cam = GameObject.Find("CameraContainer");
+        camFollow = cam.GetComponent<CameraFolow>();
+        playerController = GetComponent<PlayerContloller>();
     }
-
-
-    void FixedUpdate()
+    void EnableHurtPanel()
     {
-        if (flag == 1)
-        {
-            ResetPlayer();
-            flag = 0;
-            Debug.Log(flag);
-        }
-        else
-        {
-            CharaController.enabled = true;
-        }
+        hurtPanel.SetActive(true);
     }
+    void DisableHurtPanel()
+    {
+        hurtPanel.SetActive(false);
+    }
+
+    void ActiveHurtEffect()
+    {
+        Invoke("EnableHurtPanel", 0.01f);
+        Invoke("DisableHurtPanel", 0.2f);
+    }
+    //void FixedUpdate()
+    //{
+    //    if (flag == 1)
+    //    {
+    //        //ResetPlayer();
+    //        flag = 0;
+    //        //Debug.Log(flag);
+    //    }
+    //    else
+    //    {
+    //        CharaController.enabled = true;
+    //    }
+    //}
     
     void Update()
     {
@@ -82,50 +104,79 @@ public class PlayerHPBar : MonoBehaviour
     }
     void ResetPlayer()
     {
-        transform.position = playerData.savePoint;
+        transform.position = playerData.savePoint+new Vector3(0,3,0);
+        cam.transform.rotation = playerData.camRotation;
+        camFollow.offset = playerData.cameraOffset;
+        playerController.cameraRotationIndex = playerData.cameraRotationIndex;
+        playerController.cameraRotationIndex2 = playerData.cameraRotationIndex2;
+        playerController.cameraRotationIndex3 = playerData.cameraRotationIndex3;
+
+        playerController.isArrivingFromRight = playerData.isArrivingFromRight;
+        playerController.isPlayerComingFromLeft= playerData.isPlayerComingFromLeft;
+        playerController.isPlayerComingFromRight = playerData.isPlayerComingFromRight;
+
         currentHp = playerData.savedHp;
         playerData.hp = currentHp;
+
+        SetHealth(currentHp);
     }
     //ColliderオブジェクトのIsTriggerにチェック入れること。
     private void OnTriggerEnter(Collider collider)
     {
-        
-            //Enemyタグのオブジェクトに触れると発動
-            if (collider.gameObject.tag == "Enemy" || collider.gameObject.tag == "EnemyZ"
-                || collider.gameObject.tag == "projectile" || collider.gameObject.tag == "EnemyInverseZ"
-                || collider.gameObject.tag == "EnemyInverseX" || collider.gameObject.tag == "ProjectileX")
-            {
-                DamageAnim.SetTrigger("playerDamage");//もしプレイヤーがダメージを受けたら、スプライトの色が変わる
-                int damage = 5;
 
-                    //現在のHPからダメージを引く
-                    currentHp = currentHp - damage;
-                    playerData.hp = currentHp;
+        //Enemyタグのオブジェクトに触れると発動
 
+        if (collider.gameObject.tag == "Enemy" || collider.gameObject.tag == "EnemyZ"
+            || collider.gameObject.tag == "projectile" || collider.gameObject.tag == "EnemyInverseZ"
+            || collider.gameObject.tag == "EnemyInverseX" || collider.gameObject.tag == "ProjectileX")
+        {
+            DamageAnim.SetTrigger("playerDamage");//もしプレイヤーがダメージを受けたら、スプライトの色が変わる
+            int damage = 5;
+
+                //現在のHPからダメージを引く
+                currentHp = currentHp - damage;
+                playerData.hp = currentHp;
+             ActiveHurtEffect();
             //最大HPにおける現在のHPをSliderに反映。
             //int同士の割り算は小数点以下は0になるので、
             //(float)をつけてfloatの変数として振舞わせる。
             //SliderUpdate();
             SetHealth(currentHp);
-            }
-            else if(collider.gameObject.tag == "EnemyRuner"|| 
-            collider.gameObject.tag == "EnemyCircle"|| collider.gameObject.tag == "EnemyRunerX"
-            || collider.gameObject.tag == "EnemyCircleZ")
+
+            //復活処理 追加 11/25
+            if (currentHp <= 0)
             {
-                DamageAnim.SetTrigger("playerDamage");//もしプレイヤーがダメージを受けたら、スプライトの色が変わる
-                int damage = 50;
+                currentHp = 0;
+                CharaController.enabled = false;
+                Invoke("OnPlayerRelieve", 1f);
+
+            }
+        }
+        else if(collider.gameObject.tag == "EnemyRuner"|| 
+        collider.gameObject.tag == "EnemyCircle"|| collider.gameObject.tag == "EnemyRunerX"
+        || collider.gameObject.tag == "EnemyCircleZ")
+        {
+            DamageAnim.SetTrigger("playerDamage");//もしプレイヤーがダメージを受けたら、スプライトの色が変わる
+            int damage = 50;
             
 
-                //現在のHPからダメージを引く
-                currentHp = currentHp - damage;
-                playerData.hp = currentHp;
-                //Debug.Log("After currentHp : " + currentHp);
+            //現在のHPからダメージを引く
+            currentHp = currentHp - damage;
+            playerData.hp = currentHp;
+            //Debug.Log("After currentHp : " + currentHp);
+            ActiveHurtEffect();
+            //最大HPにおける現在のHPをSliderに反映。
+            //int同士の割り算は小数点以下は0になるので、
+            //(float)をつけてfloatの変数として振舞わせる。
+            SetHealth(currentHp);
+            //復活処理 追加 11/25
+            if (currentHp <= 0)
+            {
+                currentHp = 0;
+                CharaController.enabled = false;
+                Invoke("OnPlayerRelieve", 1f);
 
-                //最大HPにおける現在のHPをSliderに反映。
-                //int同士の割り算は小数点以下は0になるので、
-                //(float)をつけてfloatの変数として振舞わせる。
-                SetHealth(currentHp);
-
+            }
 
         }
         //Enemyタグのオブジェクトに触れると発動
@@ -144,10 +195,20 @@ public class PlayerHPBar : MonoBehaviour
             currentHp = currentHp - damage;
             playerData.hp = currentHp;
 
+            ActiveHurtEffect();
             //最大HPにおける現在のHPをSliderに反映。
             //int同士の割り算は小数点以下は0になるので、
             //(float)をつけてfloatの変数として振舞わせる。
             SetHealth(currentHp);
+
+            //復活処理 追加 11/25
+            if (currentHp <= 0)
+            {
+                currentHp = 0;
+                CharaController.enabled = false;
+                Invoke("OnPlayerRelieve", 1f);
+
+            }
         }
 
         if (collider.gameObject.tag == "Rec" && currentHp<playerData.maxHp)
@@ -180,27 +241,33 @@ public class PlayerHPBar : MonoBehaviour
             int damage = 150;
             //ダメージは1～100の中でランダムに決める。
             
-
             //現在のHPからダメージを引く
             currentHp = currentHp - damage;
-            
             playerData.hp = currentHp;
-
+            ActiveHurtEffect();
             SetHealth(currentHp);
 
-        }
+            //復活処理 追加 11/25
+            if (currentHp <= 0)
+            {
+                currentHp = 0;
+                CharaController.enabled = false;
 
-        //復活処理 追加 11/25
-        if (currentHp <= 0)
-        {
-            currentHp = 0;
-            CharaController.enabled = false;
-            flag = 1;
-            SetHealth(currentHp);
-
+                //Debug.Log("current hp " + currentHp);
+                //flag = 1;
+                //SetHealth(currentHp);
+                Invoke("OnPlayerRelieve", 1f);
+            }
         }
     }
    
+    void OnPlayerRelieve()
+    {
+        ResetPlayer();
+        CharaController.enabled = true;
+        
+        SetHealth(currentHp);
+    }
     private void OnTriggerExit(Collider collider)
     {
         if (collider.gameObject.tag == "Enemy" || collider.gameObject.tag == "EnemyZ"
